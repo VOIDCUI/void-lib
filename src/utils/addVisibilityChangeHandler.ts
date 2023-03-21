@@ -2,7 +2,7 @@
  * @Author       : cuiguiming
  * @Date         : 2023-03-20 14:40:44
  * @LastEditors  : 崔桂铭
- * @LastEditTime : 2023-03-20 19:03:27
+ * @LastEditTime : 2023-03-21 10:53:19
  * @Description  : Description
  */
 /**
@@ -21,11 +21,7 @@ interface addVisibilityChangeHandlerProp {
 	onShow?: () => void;
 }
 
-export function isValidKey(key: string | number | symbol, object: object): key is keyof typeof object {
-    return key in object;
-}
-
-function addVisibilityChangeHandler(options?: addVisibilityChangeHandlerProp) {
+function addVisibilityChangeHandler(options?: addVisibilityChangeHandlerProp & Function): (() => void) | undefined {
   if (!options) return undefined;
   let onChange: any;
   let onHide: any;
@@ -68,7 +64,7 @@ function addVisibilityChangeHandler(options?: addVisibilityChangeHandlerProp) {
   if (visProp) {
     evtname = `${visProp.replace(/[H|h]idden/, '')}visibilitychange`;
     handler = () => {
-      const visibilityState: any = (document as any)[getVisibilityState()]
+      const visibilityState: any = (document as any)?.[getVisibilityState()]
       if (visibilityState === VISIBLE) {
         onShow?.();
       } else if (visibilityState === HIDDEN) {

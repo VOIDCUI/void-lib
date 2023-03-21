@@ -2,7 +2,7 @@
  * @Author       : cuiguiming
  * @Date         : 2023-03-20 16:24:15
  * @LastEditors  : 崔桂铭
- * @LastEditTime : 2023-03-20 16:24:16
+ * @LastEditTime : 2023-03-21 10:45:46
  * @Description  : Description
  */
 const getScrollTop = (el: Document | Element) => {
@@ -30,5 +30,5 @@ const getScrollTop = (el: Document | Element) => {
 	);
   };
   
-  export { getScrollTop, getScrollHeight, getClientHeight };
+  export default { getScrollTop, getScrollHeight, getClientHeight };
   
