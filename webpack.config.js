@@ -15,7 +15,7 @@ const config = {
 		addVisibilityChangeHandler: './src/utils/addVisibilityChangeHandler',
         }
       : isProduction
-      ? './src/utils/calc/index.ts'
+      ? './src/utils/index.ts'
       : './src/index.ts',
 
   // 由于输出 ESM 格式文件为 Webpack 实验特性，因此需要加上此配置。
